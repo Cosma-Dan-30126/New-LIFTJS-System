@@ -13,45 +13,45 @@
     <div class="main_Container">
         <h2>This is the main container!</h2>
 
-        <div class="floors_container" style="border: 5px solid black; width:auto; display:column">
+        <div class="floors_container" style="border: 5px solid black; width:flex; position:relative; padding:10px">
         
-                <div class="Lift_Car_A" id="lift_A" style="text-align: right;">Lift A</div>
-                <div class="Lift_Car_B" id="Lift_B" style="text-align: right;">Lift B </div>
+                <div class="Lift_Car_A" id="lift_A" style="text-align: left; position:absolute; left:0px; bottom:0px; transition: all 1s ease-in-out;">Lift A</div>
+                <div class="Lift_Car_B" id="lift_B" style="text-align: left; position:absolute; left:60px; bottom:0px; transition: all 1s ease-in-out;  ">Lift B </div>
             
 
-                <div class="floor_container" id="floor_7" style="text-align: left;">
+                <div class="floor_container" id="floor_7" style="text-align: right; height:80px">
                     <h3>Etaj 7</h3>
-                    <button>7</button>
+                    <button onclick="moveLift(7)">7</button>
                 </div>
 
-                <div class="floor_container" id="floor_6" style="text-align: left;">
+                <div class="floor_container" id="floor_6" style="text-align: right;  height:80px">
                     <h3>Etaj 6</h3>
-                    <button>6</button>
+                    <button  onclick="moveLift(6)">6</button>
                 </div>
 
-                <div class="floor_container" id="floor_5" style="text-align: left;">
+                <div class="floor_container" id="floor_5" style="text-align: right;  height:80px">
                     <h3>Etaj 5</h3>
-                    <button>5</button>
+                    <button  onclick="moveLift(5)">5</button>
                 </div>
 
-                <div class="floor_container" id="floor_4" style="text-align: left;">
+                <div class="floor_container" id="floor_4" style="text-align: right;  height:80px">
                     <h3>Etaj 4</h3>
-                    <button>4</button>
+                    <button  onclick="moveLift(4)">4</button>
                 </div>
 
-                <div class="floor_container" id="floor_3" style="text-align: left;">
+                <div class="floor_container" id="floor_3" style="text-align: right;  height:80px">
                     <h3>Etaj 3</h3>
-                    <button>3</buttom>
+                    <button  onclick="moveLift(3)">3</buttom>
                 </div>
 
-                <div class="floor_container" id="floor_2" style="text-align: left;">
+                <div class="floor_container" id="floor_2" style="text-align: right;  height:80px">
                     <h3>Etaj 2</h3>
-                    <button>2</button>
+                    <button  onclick="moveLift(2)">2</button>
                 </div>
 
-                <div class="floor_container"  id="floor_1" style="text-align: left;">
+                <div class="floor_container"  id="floor_1" style="text-align: right;  height:80px">
                     <h3>Etaj 1</h3>
-                    <button>P</button>
+                    <button  onclick="moveLift(1)">P</button>
                 </div>
      
     </div>
