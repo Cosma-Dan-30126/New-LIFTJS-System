@@ -5,54 +5,109 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Elevator System</title>
         <style>
+            body,html{
+                margin: 0;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #ffffff
+            }
+
+            .main_Container{
+                width: 400px;
+                height: 90vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .floors_container{
+            flex-grow: 1;
+            border: 5px solid #333;
+            background: white;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            }
+
+            .floor_container{ 
+                flex:1;
+                border-bottom: 1px solid #eee;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                padding-right: 20px;
+                box-sizing: border-box;
+            }
+
+            .lift {
+            width: 50px;
+            /* Înălțimea liftului e calculată automat: 100% divizat la 7 etaje */
+            height: calc(100% / 7); 
+            position: absolute;
+            transition: bottom 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        #lift_A {
+            background-color: #e74c3c;
+            left: 10px;
+            bottom: 0%; /* Începe la parter */
+        }
+
+        #lift_B {
+            background-color: #3498db;
+            left: 70px;
+            bottom: calc(100% - (100% / 7)); /* Începe la ultimul etaj */
+        }
         </style>
     </head>
 
 
 <body>
     <div class="main_Container">
-        <h2>This is the main container!</h2>
+        <h2>Elevator Control!</h2>
 
-        <div class="floors_container" style="border: 5px solid black; width:flex; position:relative; padding:10px">
+        <div class="floors_container">
         
-                <div class="Lift_Car_A" id="lift_A" style="text-align: left; position:absolute; left:0px; bottom:0px; transition: all 1s ease-in-out;">Lift A</div>
-                <div class="Lift_Car_B" id="lift_B" style="text-align: left; position:absolute; left:60px; bottom:0px; transition: all 1s ease-in-out;  ">Lift B </div>
+                <div class="lift" id="lift_A" >Lift A</div>
+                <div class="lift" id="lift_B" >Lift B </div>
             
 
-                <div class="floor_container" id="floor_7" style="text-align: right; height:80px">
-                    <h3>Etaj 7</h3>
+                <div class="floor_container" id="floor_7">
+                    <span>Etaj 7</span>
                     <button onclick="moveLift(7)">7</button>
                 </div>
-
-                <div class="floor_container" id="floor_6" style="text-align: right;  height:80px">
-                    <h3>Etaj 6</h3>
-                    <button  onclick="moveLift(6)">6</button>
+                <div class="floor_container" id="floor_6">
+                    <span>Etaj 6</span>
+                    <button onclick="moveLift(6)">6</button>
+                </div>
+                <div class="floor_container" id="floor_5">
+                    <span>Etaj 5</span>
+                    <button onclick="moveLift(5)">5</button>
+                </div> 
+                <div class="floor_container" id="floor_4">
+                    <span>Etaj 4</span>
+                    <button onclick="moveLift(4)">4</button>
+                </div>
+                <div class="floor_container" id="floor_3">
+                    <span>Etaj 3</span>
+                    <button onclick="moveLift(3)">3</button>
+                </div>
+                <div class="floor_container" id="floor_2">
+                    <span>Etaj 2</span>
+                    <button onclick="moveLift(2)">2</button>
+                </div>
+                <div class="floor_container" id="floor_1">
+                    <span>Etaj 1</span>
+                    <button onclick="moveLift(1)">1</button>
                 </div>
 
-                <div class="floor_container" id="floor_5" style="text-align: right;  height:80px">
-                    <h3>Etaj 5</h3>
-                    <button  onclick="moveLift(5)">5</button>
-                </div>
-
-                <div class="floor_container" id="floor_4" style="text-align: right;  height:80px">
-                    <h3>Etaj 4</h3>
-                    <button  onclick="moveLift(4)">4</button>
-                </div>
-
-                <div class="floor_container" id="floor_3" style="text-align: right;  height:80px">
-                    <h3>Etaj 3</h3>
-                    <button  onclick="moveLift(3)">3</buttom>
-                </div>
-
-                <div class="floor_container" id="floor_2" style="text-align: right;  height:80px">
-                    <h3>Etaj 2</h3>
-                    <button  onclick="moveLift(2)">2</button>
-                </div>
-
-                <div class="floor_container"  id="floor_1" style="text-align: right;  height:80px">
-                    <h3>Etaj 1</h3>
-                    <button  onclick="moveLift(1)">P</button>
-                </div>
      
     </div>
     </div>

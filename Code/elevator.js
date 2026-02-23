@@ -1,16 +1,26 @@
-function moveLift(floor){
-    let liftA= document.getElementById('lift_A');
-    let liftB= document.getElementById('lift_B');
-    const floorSize= 80;
+let posA=1;
+let posB=7;
+const totalFloors=7;
 
-    let posA= parseInt(liftA.style.bottom)|| 0;
-    let posB= parseInt(liftB.style.bottom)|| 0;
-    let target= (floor)*floorSize;
+function moveLift(reqFloor){
+    let distA=Math.abs(reqFloor-posA);
+    let distB=Math.abs(reqFloor-posB);
 
-    if(Math.abs(target-posA)<=Math.abs(target-posB)){
-        liftA.style.bottom = target + "px";
-    } else{
-        liftB.style.bottom = target+ "px";
+    distA <= distB ? goToFloor(reqFloor, "A")
+                   : goToFloor(reqFloor, "B")
+
+}
+
+function goToFloor(floor,liftId){
+    const procent= (floor-1)*(100/totalFloors);
+    const liftElement= document.getElementById(`lift_${liftId}`);
+   
+    if (liftElement) {
+        liftElement.style.bottom = `${procent}%`;
+                liftId === "A" ? posA = floor : posB = floor;
     }
-    
+
+    liftId==="A" ? posA= floor : posB=floor;
+    console.log(`Liftul cu Id ${liftId} se misca catre etajul selectat ${floor}`);
+
 }
