@@ -6,9 +6,18 @@ function moveLift(reqFloor){
     let distA=Math.abs(reqFloor-posA);
     let distB=Math.abs(reqFloor-posB);
 
-    distA <= distB ? goToFloor(reqFloor, "A")
-                   : goToFloor(reqFloor, "B")
+    //distA <= distB ? goToFloor(reqFloor, "A")
+                 //  : goToFloor(reqFloor, "B")
 
+    if(distA === distB) 
+        {
+            goToFloor(reqFloor, "A")
+} else if(distA < distB)
+{
+    goToFloor(reqFloor, "A")
+} else {
+    goToFloor(reqFloor, "B")
+}
 }
 
 function goToFloor(floor,liftId){
