@@ -87,3 +87,34 @@ body,html{
             left: 70px;
             bottom: calc(100% - (100% / 7)); /* Începe la ultimul etaj */
         }
+
+        .pannel {
+    background: #222;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    width: 150px;
+    text-align: center;
+}
+
+.view_pannel {
+    font-size: 24px;
+    color: #ff0000; 
+    background: #000;
+    margin: 10px 0;
+    border: 2px solid #444;
+}
+
+.state {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.grid_buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}

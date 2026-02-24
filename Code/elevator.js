@@ -5,7 +5,7 @@ const States= {
     IDLE: 'IDLE',
     //MOVING: 'MOVING', //Miscare. O sa o folosim asta si pentru a putea sa spunem cand un lift este busy pentru a-l selecta pe celalalt, 
     DOORS_OPEN: 'OPENING',  //Tranzitie
-    DOORS_CLOSING: 'CLOSING'  //Tranzitie
+    DOORS_CLOSED: 'CLOSING'  //Tranzitie
 };
 
 
@@ -16,6 +16,20 @@ const lifts= {
 
 }
 
+function updatePanel(liftId){
+    const lift= lifts[liftId];
+    const display= document.getElementById(`view_pannel_${liftId}`);
+    const stateLabel= document.getElementById(`state-${liftId}`);
+
+    if (display) display.innerText= lift.pos;
+    if(stateLabel){
+        stateLabel.innerText= lift.state;
+        stateLabel.style.color=lift.state ===States.IDLE ? "#2ecc71" : "#e74c3c";
+    }
+}
+
+updatePanel('A');
+updatePanel('B');
 
 
 function moveLift(reqFloor){
@@ -56,14 +70,14 @@ function goToFloor(floor, liftId) {
     if (liftElement) {
         lift.state = States.DOORS_CLOSED; 
         updateDoors(liftId, false); 
-
+        updatePanel(liftId);
         // Punem un mic delay pentru a lăsa ușile să se închidă vizual
         setTimeout(() => {
             const procent = (floor - 1) * (100 / totalFloors);
             liftElement.style.bottom = `${procent}%`;
             
-            liftId === "A" ? posA = floor : posB = floor;
-            lift.pos = floor; 
+             lift.pos = floor; 
+             updatePanel(liftId);
 
             console.log(`Liftul cu Id ${liftId} se mișcă către etajul ${floor}`);
 
@@ -71,10 +85,12 @@ function goToFloor(floor, liftId) {
             setTimeout(() => {
                 lift.state = States.DOORS_OPEN;
                 updateDoors(liftId, true);
+                updatePanel(liftId);
 
                 // După ce se deschid, îl punem IDLE
                 setTimeout(() => {
                     lift.state = States.IDLE;
+                    updatePanel(liftId);
                 }, doors_action_time); 
 
             }, lift_moving_time);
