@@ -32,4 +32,6 @@ function goToFloor(floor,liftId){
     liftId==="A" ? posA= floor : posB=floor;
     console.log(`Liftul cu Id ${liftId} se misca catre etajul selectat ${floor}`);
 
+// Urmatoarea implementare pe care as face-o este sa creez un sistem de stari pentru a spune in ce stare se afla liftul. Ne ajuta la deschisul usilor
+
 }
