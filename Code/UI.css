@@ -1,0 +1,89 @@
+body,html{
+                margin: 0;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #ffffff
+            }
+
+            .main_Container{
+                width: 400px;
+                height: 90vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .floors_container{
+            flex-grow: 1;
+            border: 5px solid #333;
+            background: white;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            }
+
+            .floor_container{ 
+                flex:1;
+                border-bottom: 1px solid #eee;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                padding-right: 20px;
+                box-sizing: border-box;
+            }
+
+            .lift {
+            width: 50px;
+            /* Înălțimea liftului e calculată automat: 100% divizat la 7 etaje */
+            height: calc(100% / 7); 
+            position: absolute;
+            transition: bottom 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .floor_view{
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+    .right_door,.left_door{
+        background-color: grey;
+        top:0;
+        width: 25px;
+        height: 100%;
+        position: absolute;
+        transition: transform 0.7s ease-in-out;
+        border: 1px solid #34495e;
+        z-index: 2;
+        
+        }
+
+        .left_door {
+    left: 0;
+}
+
+    .right_door {
+    right: 0;
+}
+
+        
+
+        #lift_A {
+            background-color: #e74c3c;
+            left: 10px;
+            bottom: 0%; /* Începe la parter */
+        }
+
+        #lift_B {
+            background-color: #3498db;
+            left: 70px;
+            bottom: calc(100% - (100% / 7)); /* Începe la ultimul etaj */
+        }
