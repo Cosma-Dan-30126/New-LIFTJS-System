@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Elevator System</title>
-        <link rel="stylesheet" href="UI.css" />
+        <link rel="stylesheet" href="UI.css"/>
     </head>
 
 
@@ -71,15 +71,31 @@
         <div class="pannel" id="pannel_A">
             <span>Controls Lift A</span>
             <div class="view_pannel" id="view_pannel_A">--</div>
-            <div class="grid_buttons" id="internal_buttons_A"></div>
+            <div class="grid_buttons" id="internal_buttons_A">
+                <button class="int-btn" onclick="pressInternal(1, 'A')">0</button>
+                <button class="int-btn" onclick="pressInternal(2, 'A')">1</button>
+                <button class="int-btn" onclick="pressInternal(3, 'A')">2</button>
+                <button class="int-btn" onclick="pressInternal(4, 'A')">3</button>
+                <button class="int-btn" onclick="pressInternal(5, 'A')">4</button>
+                <button class="int-btn" onclick="pressInternal(6, 'A')">5</button>
+                <button class="int-btn" onclick="pressInternal(7, 'A')">6</button>
+            </div>
             <div class="state" id="state-A">IDLE</div>
         </div>
 
-         <div class="pannel" id="pannel_B">
+        <div class="pannel" id="pannel_B">
             <span>Controls Lift B</span>
             <div class="view_pannel" id="view_pannel_B">--</div>
-            <div class="grid_buttons" id="internal_buttons_B"></div>
-            <div class="state" id="state-B">IDLE</div>
+            <div class="grid_buttons" id="internal_buttons_B">
+                <button class="int-btn" onclick="pressInternal(1, 'B')">0</button>
+                <button class="int-btn" onclick="pressInternal(2, 'B')">1</button>
+                <button class="int-btn" onclick="pressInternal(3, 'B')">2</button>
+                <button class="int-btn" onclick="pressInternal(4, 'B')">3</button>
+                <button class="int-btn" onclick="pressInternal(5, 'B')">4</button>
+                <button class="int-btn" onclick="pressInternal(6, 'B')">5</button>
+                <button class="int-btn" onclick="pressInternal(7, 'B')">6</button>
+            </div>
+                <div class="state" id="state-B">IDLE</div>
         </div>
 
     </div>
