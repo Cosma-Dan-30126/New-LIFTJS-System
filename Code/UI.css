@@ -40,6 +40,13 @@ body,html{
 
             }
 
+            button.active-call {
+            background-color: #f1c40f !important;
+            box-shadow: 0 0 10px #f1c40f;
+            border-color: #fff;
+            color: #000;
+}
+
             .lift {
             width: 50px;
             /* Înălțimea liftului e calculată automat: 100% divizat la 7 etaje */
@@ -147,4 +154,11 @@ body,html{
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     margin-top: 15px;
+}
+
+.int-btn.active-internal {
+    background-color: #e74c3c !important; /* Roșu aprins */
+    box-shadow: 0 0 10px #e74c3c;
+    color: white !important;
+    border: 1px solid #fff;
 }

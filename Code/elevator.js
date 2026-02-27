@@ -44,7 +44,15 @@ updatePanel('A');
 updatePanel('B');
 
 
-function moveLift(reqFloor){
+function moveLift(reqFloor,direction){
+    //Initializam apasarea si aprinderea butoanelor.
+    const selector = `.floor-btn-${reqFloor}.${direction}`;
+    const floorButton = document.querySelector(selector);
+
+    if(floorButton){
+    floorButton?.classList.add('active-call');
+    }
+
     let availableLifts = [];
 
     for( let id in lifts){
@@ -62,7 +70,15 @@ function moveLift(reqFloor){
     if(availableLifts.length==2){
         let distA = Math.abs(reqFloor - lifts.A.pos);
         let distB = Math.abs(reqFloor - lifts.B.pos);
-        chosenId = (distA <= distB) ? "A" : "B";
+       
+        if (distA< distB){
+            chosenId="A";
+        } else if (distB< distA){
+            chosenId="B";
+        } else {
+            chosenId=(lifts.A.pos <lifts.B.pos) ? "A": "B";
+            console.log(`Egalitate de distanta. Alegem liftul ${chosenId} deoarece satisface conditia initiala.`);
+        }
     } else {
         chosenId=availableLifts[0];
     }
@@ -102,6 +118,14 @@ function goToFloor(floor, liftId) {
                 updateDoors(liftId, true);
                 updatePanel(liftId);
 
+        //Sting butoanele de etaj aici:
+
+        const floorButton = document.querySelectorAll(`.floor-btn-${floor}`);
+        floorButton.forEach(btn => btn.classList.remove('active-call'));
+
+    const internalBtnSelector = `#internal_buttons_${liftId} button[onclick*="(${floor},"]`;
+    const internalBtn = document.querySelector(internalBtnSelector);
+    if (internalBtn) internalBtn.classList.remove('active-internal')
                 // După ce se deschid, îl punem IDLE
                 setTimeout(() => {
                     lift.state = States.IDLE;
@@ -136,6 +160,10 @@ function pressInternal(floor,liftId){
         console.log(`Liftul ${liftId} este deja la etajul cerut: ${floor}.`);
         return;
     }
+
+    const selector = `#internal_buttons_${liftId} button[onclick*="(${floor},"]`;
+    const btn = document.querySelector(selector);
+    if (btn) btn.classList.add('active-internal');
 
     lift.state=States.DOORS_CLOSED;
     updatePanel(liftId);
