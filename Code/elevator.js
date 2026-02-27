@@ -26,6 +26,12 @@ function updatePanel(liftId){
     const display= document.getElementById(`view_pannel_${liftId}`);
     const stateLabel= document.getElementById(`state-${liftId}`);
 
+    const liftFloorView = document.getElementById(`floor_display_${liftId}`);
+    if (liftFloorView) {
+        liftFloorView.innerText = lift.pos;
+    }
+    
+
     if (display) display.innerText= lift.pos;
     if(stateLabel){
         stateLabel.innerText= lift.state;
@@ -72,11 +78,13 @@ function goToFloor(floor, liftId) {
     const doors_action_time=700;
     const liftElement = document.getElementById(`lift_${liftId}`);
     const lift = lifts[liftId]; // Luăm obiectul liftului pentru a-i schimba starea
+    const direction = floor > lift.pos ? 'up' : 'down';
 
     if (liftElement) {
         lift.state = States.DOORS_CLOSED; 
         updateDoors(liftId, false); 
         updatePanel(liftId);
+        updateArrows(liftId, direction);
         // Punem un mic delay pentru a lăsa ușile să se închidă vizual
         setTimeout(() => {
             lift.state=States.MOVING;
@@ -97,6 +105,7 @@ function goToFloor(floor, liftId) {
                 // După ce se deschid, îl punem IDLE
                 setTimeout(() => {
                     lift.state = States.IDLE;
+                    updateArrows(liftId, 'none');
                     updatePanel(liftId);
                 }, doors_action_time); 
 
@@ -128,6 +137,25 @@ function pressInternal(floor,liftId){
         return;
     }
 
+    lift.state=States.DOORS_CLOSED;
+    updatePanel(liftId);
+
     console.log(`Comanda acceptta: Lift ${liftId} catre etajul ${floor}`);
     goToFloor(floor,liftId);
+}
+
+function updateArrows(liftId, direction){
+    const upArrow= document.getElementById(`up_${liftId}`);
+    const downArrow= document.getElementById(`down_${liftId}`);
+
+    if(!upArrow || !downArrow) return;
+
+    upArrow.classList.remove('active_up');
+    downArrow.classList.remove('active_down');
+
+    if(direction === 'up'){
+        upArrow.classList.add('active_up');
+    } else if (direction === 'down'){
+        downArrow.classList.add('active_down');
+    }
 }

@@ -8,7 +8,7 @@ You shall deliver the code for this application and picture/s for the diagrams t
 
 Details There are 7 floors in a block and only 2 lifts. Initially Lift A is at the ground floor and Lift B at the top floor. Whenever someone calls the lift from N th floor, the lift closest to that floor comes to pick him up. If both the lifts are at equidistant from the N th floor, them the lift from the lower floor comes up.
 
-There are navigation buttons in each floor (up / down). Inside the elevator there are buttons to select the destination. Seven segment displays indicate the position of the lift. These are presentinside the elevator. There are arrows to indicate the direction of movement of the elevator in each floor.
+There are navigation buttons in each floor (up / down). Inside the elevator there are buttons to select the destination. Seven segment displays indicate the position of the lift. These are present inside the elevator. There are arrows to indicate the direction of movement of the elevator in each floor.
 
 The following changes cause state transitions:
 
